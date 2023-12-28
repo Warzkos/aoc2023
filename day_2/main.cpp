@@ -15,6 +15,7 @@ int main() {
     std::string line;
 
     int id_sum = 0;
+    int power_sum = 0;
 
     while(std::getline(input, line)) {
         int game_id = std::stoi(line.substr(5, line.find(game_id_end)));
@@ -60,9 +61,12 @@ int main() {
         if(red_cubes_count <= max_red_cubes && green_cubes_count <= max_green_cubes && blue_cubes_count <= max_blue_cubes) {
             id_sum += game_id;
         }
+
+        power_sum += red_cubes_count * green_cubes_count * blue_cubes_count;
     }
 
-    std::cout << "Sum of possible games ids: " << id_sum;
+    std::cout << "Sum of possible games ids: " << id_sum << std::endl;
+    std::cout << "Sum of power: " << power_sum << std::endl;
 
     return 0;
 };
